@@ -37,6 +37,7 @@ public class TransportForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         passenger = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        TransportOptions = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +64,9 @@ public class TransportForm extends javax.swing.JFrame {
         jButton1.setText("HomeScreen");
         jButton1.addActionListener(this::jButton1ActionPerformed);
 
+        TransportOptions.setText("Transport Options");
+        TransportOptions.addActionListener(this::TransportOptionsActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -79,7 +83,10 @@ public class TransportForm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(DistanceKM, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TransportOptions))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -94,7 +101,7 @@ public class TransportForm extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
                                 .addComponent(emission, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +112,9 @@ public class TransportForm extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(TransportOptions))))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -150,6 +159,11 @@ public class TransportForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void TransportOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportOptionsActionPerformed
+new TransportOptions().setVisible(true); 
+this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_TransportOptionsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -177,6 +191,7 @@ public class TransportForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DistanceKM;
+    private javax.swing.JButton TransportOptions;
     private javax.swing.JTextField emission;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
