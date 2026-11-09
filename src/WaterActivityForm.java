@@ -82,6 +82,7 @@ public class WaterActivityForm extends javax.swing.JFrame {
         deleteButton.setText("Delete");
 
         ReportsButton.setText("History and Reports");
+        ReportsButton.addActionListener(this::ReportsButtonActionPerformed);
 
         homeButton.setText("Home");
         homeButton.addActionListener(this::homeButtonActionPerformed);
@@ -211,6 +212,12 @@ public class WaterActivityForm extends javax.swing.JFrame {
         new EcoTracker().setVisible(true);
 dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
+
+    private void ReportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportsButtonActionPerformed
+        // TODO add your handling code here:
+        new WaterHistoryForm().setVisible(true);
+dispose();
+    }//GEN-LAST:event_ReportsButtonActionPerformed
 
     /**
      * @param args the command line arguments
