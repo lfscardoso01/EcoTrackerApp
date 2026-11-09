@@ -40,6 +40,7 @@ public class EcoTracker extends javax.swing.JFrame {
         waterButton.addActionListener(this::waterButtonActionPerformed);
 
         TransportButton.setText("Transport");
+        TransportButton.addActionListener(this::TransportButtonActionPerformed);
 
         EletricityButton.setText("Eletricity");
 
@@ -82,6 +83,11 @@ public class EcoTracker extends javax.swing.JFrame {
         new WaterActivityForm().setVisible(true);
 dispose();
     }//GEN-LAST:event_waterButtonActionPerformed
+
+    private void TransportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportButtonActionPerformed
+new TransportForm().setVisible(true);
+this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_TransportButtonActionPerformed
 
     /**
      * @param args the command line arguments
