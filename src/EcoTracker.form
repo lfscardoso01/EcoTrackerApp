@@ -35,7 +35,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="TransportButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="46" max="32767" attributes="0"/>
-                      <Component id="EletricityButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="eletricityButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -51,7 +51,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="waterButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="TransportButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="EletricityButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="eletricityButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
@@ -80,10 +80,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TransportButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="EletricityButton">
+    <Component class="javax.swing.JButton" name="eletricityButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eletricity"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eletricityButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

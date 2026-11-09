@@ -30,7 +30,7 @@ public class EcoTracker extends javax.swing.JFrame {
         TextLb1 = new javax.swing.JLabel();
         waterButton = new javax.swing.JButton();
         TransportButton = new javax.swing.JButton();
-        EletricityButton = new javax.swing.JButton();
+        eletricityButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,7 +42,8 @@ public class EcoTracker extends javax.swing.JFrame {
         TransportButton.setText("Transport");
         TransportButton.addActionListener(this::TransportButtonActionPerformed);
 
-        EletricityButton.setText("Eletricity");
+        eletricityButton.setText("Eletricity");
+        eletricityButton.addActionListener(this::eletricityButtonActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,7 +60,7 @@ public class EcoTracker extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TransportButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(EletricityButton)
+                        .addComponent(eletricityButton)
                         .addGap(27, 27, 27))))
         );
         layout.setVerticalGroup(
@@ -71,7 +72,7 @@ public class EcoTracker extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(waterButton)
                     .addComponent(TransportButton)
-                    .addComponent(EletricityButton))
+                    .addComponent(eletricityButton))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
 
@@ -88,6 +89,14 @@ dispose();
 new TransportForm().setVisible(true);
 this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_TransportButtonActionPerformed
+
+    private void eletricityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eletricityButtonActionPerformed
+        // TODO add your handling code here:
+        ApplianceForm screen = new ApplianceForm();
+screen.setLocationRelativeTo(this);
+screen.setVisible(true);
+dispose();
+    }//GEN-LAST:event_eletricityButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,9 +124,9 @@ this.dispose();// TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton EletricityButton;
     private javax.swing.JLabel TextLb1;
     private javax.swing.JButton TransportButton;
+    private javax.swing.JButton eletricityButton;
     private javax.swing.JButton waterButton;
     // End of variables declaration//GEN-END:variables
 }
