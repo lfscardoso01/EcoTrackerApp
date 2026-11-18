@@ -23,5 +23,29 @@ public class HotWaterActivity extends WaterActivity {
         this.finalTemperature = finalTemperature;
         this.emissionFactor = emissionFactor;
     }
+
+    public void setInitialTemperature(double initialTemperature) {
+        this.initialTemperature = initialTemperature;
+    }
+
+    public void setFinalTemperature(double finalTemperature) {
+        this.finalTemperature = finalTemperature;
+    }
+
+    public void setEmissionFactor(double emissionFactor) {
+        this.emissionFactor = emissionFactor;
+    }
+
+    public double getInitialTemperature() {
+        return initialTemperature;
+    }
+
+    public double getFinalTemperature() {
+        return finalTemperature;
+    }
+
+    public double getEmissionFactor() {
+        return emissionFactor;
+    }
     
 }
