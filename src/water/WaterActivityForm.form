@@ -126,10 +126,12 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="durationLb3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="textLb8" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="emissionLb8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="durationLb3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="emissionLb8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Component id="textLb3" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
