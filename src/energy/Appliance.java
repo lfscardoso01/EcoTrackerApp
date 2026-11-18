@@ -30,9 +30,10 @@ public class Appliance implements EnergyCalculable{
     public double getHoursPerDay() {
         return hoursPerDay;
     }
-            public double calculateDailyConsumption(){
-                return(powerWatts * hoursPerDay)/1000.0;
-            }
+    @Override
+    public double calculateDailyConsumption(){
+       return(powerWatts * hoursPerDay)/1000.0;
+       }
             
     
     
