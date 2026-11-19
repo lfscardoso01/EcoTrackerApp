@@ -14,6 +14,7 @@ import energy.EnergySimulationForm;
  * @author paulo
  */
 public class ApplianceForm extends javax.swing.JFrame {
+    private static final ApplianceManager manager =new ApplianceManager();
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApplianceForm.class.getName());
 
@@ -76,12 +77,16 @@ public class ApplianceForm extends javax.swing.JFrame {
         jLabel6.setText("Records and estimated consuption (kwh/day)");
 
         btnAdd.setText("Add");
+        btnAdd.addActionListener(this::btnAddActionPerformed);
 
         btnDisplayAll.setText("Display all");
+        btnDisplayAll.addActionListener(this::btnDisplayAllActionPerformed);
 
         btnSearch.setText("Search");
+        btnSearch.addActionListener(this::btnSearchActionPerformed);
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(this::btnDeleteActionPerformed);
 
         txtRecords.setEditable(false);
         txtRecords.setColumns(20);
@@ -223,6 +228,114 @@ screen.setLocationRelativeTo(this);
 screen.setVisible(true);
 dispose();
     }//GEN-LAST:event_btnSimulateSavingsActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        try {
+    String name = txtApplianceName.getText().trim();
+    double power = Double.parseDouble(txtPowerWatts.getText().trim());
+    double hours = Double.parseDouble(txtHoursPerDay.getText().trim());
+
+    if (name.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+                "Enter the appliance name.");
+        return;
+    }
+
+    if (!Double.isFinite(power) || power <= 0
+            || !Double.isFinite(hours) || hours < 0 || hours > 24) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+                "Power must be greater than zero. Hours must be between 0 and 24.");
+        return;
+    }
+
+    Appliance appliance;
+
+    if (chkHeater.isSelected()) {
+        double proportion = Double.parseDouble(
+                txtHeatingProportion.getText().trim());
+
+        if (!Double.isFinite(proportion)
+                || proportion < 0 || proportion > 1) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Heating proportion must be between 0 and 1.");
+            return;
+        }
+
+        appliance = new HeatingAppliance(name, power, hours, proportion);
+    } else {
+        appliance = new Appliance(name, power, hours);
+    }
+
+    manager.addAppliance(appliance);
+
+    txtRecords.setText(
+            "Added: " + appliance.getName()
+            + "\nDaily consumption: "
+            + appliance.calculateDailyConsumption() + " kWh/day");
+
+} catch (NumberFormatException ex) {
+    javax.swing.JOptionPane.showMessageDialog(this,
+            "Enter valid numbers. Use a decimal point, for example 0.5.");
+}// TODO add your handling code here:
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnDisplayAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisplayAllActionPerformed
+if (manager.getAllAppliances().isEmpty()) {
+    txtRecords.setText("No records yet.");
+    return;
+}
+
+StringBuilder records = new StringBuilder();
+
+for (Appliance appliance : manager.getAllAppliances()) {
+    records.append("Name: ")
+            .append(appliance.getName())
+            .append("\nDaily consumption: ")
+            .append(appliance.calculateDailyConsumption())
+            .append(" kWh/day\n\n");
+}
+
+txtRecords.setText(records.toString());        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDisplayAllActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+       String name = txtApplianceName.getText().trim();
+
+if (name.isEmpty()) {
+    javax.swing.JOptionPane.showMessageDialog(this,
+            "Enter the appliance name to search.");
+    return;
+}
+
+Appliance appliance = manager.searchAppliance(name);
+
+if (appliance == null) {
+    txtRecords.setText("Appliance not found.");
+} else {
+    txtRecords.setText(
+            "Name: " + appliance.getName()
+            + "\nDaily consumption: "
+            + appliance.calculateDailyConsumption() + " kWh/day");
+} // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+     String name = txtApplianceName.getText().trim();
+
+if (name.isEmpty()) {
+    javax.swing.JOptionPane.showMessageDialog(this,
+            "Enter the appliance name to delete.");
+    return;
+}
+
+boolean deleted = manager.deleteAppliances(name);
+
+if (deleted) {
+    txtRecords.setText("Appliance deleted: " + name);
+} else {
+    txtRecords.setText("Appliance not found.");
+    }   // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments

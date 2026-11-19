@@ -22,6 +22,9 @@ public class ApplianceManager {
         appliances.add(appliance);
         
 }
+    public ArrayList<Appliance> getAllAppliances() {
+    return new ArrayList<>(appliances);
+}
     public Appliance searchAppliance(String name){
         for (Appliance appliance :appliances){
             if(appliance.getName().equalsIgnoreCase(name)){
