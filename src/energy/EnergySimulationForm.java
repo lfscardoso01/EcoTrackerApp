@@ -11,14 +11,29 @@ package energy;
  */
 public class EnergySimulationForm extends javax.swing.JFrame {
     
+    private ApplianceManager manager;
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EnergySimulationForm.class.getName());
 
     /**
      * Creates new form EnergySimulationForm
      */
     public EnergySimulationForm() {
-        initComponents();
+    this(new ApplianceManager());
+}
+
+public EnergySimulationForm(ApplianceManager manager) {
+    this.manager = manager;
+    initComponents();
+
+    cmbAppliance.removeAllItems();
+
+    for (Appliance appliance : manager.getAllAppliances()) {
+        cmbAppliance.addItem(appliance.getName());
     }
+
+    txtSimulationResult.setEditable(false);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.

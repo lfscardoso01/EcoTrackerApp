@@ -223,7 +223,7 @@ dispose();
 
     private void btnSimulateSavingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimulateSavingsActionPerformed
         // TODO add your handling code here:
-        EnergySimulationForm screen = new EnergySimulationForm();
+        EnergySimulationForm screen = new EnergySimulationForm(manager);
 screen.setLocationRelativeTo(this);
 screen.setVisible(true);
 dispose();
